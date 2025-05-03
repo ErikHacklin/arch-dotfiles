@@ -1,0 +1,5 @@
+theme = catppuccin-mocha
+mouse-hide-while-typing = true
+background-opacity = 0.95
+window-decoration = false
+font-family=OverpassM Nerd Font
