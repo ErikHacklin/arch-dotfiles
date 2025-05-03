@@ -1,0 +1,4 @@
+nerd-fonts
+steam
+waybar
+ghostty
