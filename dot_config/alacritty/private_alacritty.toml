@@ -3,19 +3,19 @@
 size = 12
 
 [font.bold]
-family = "OverpassM Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "OverpassM Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "OverpassM Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "OverpassM Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [window]
