@@ -1,145 +1,90 @@
 {
-  "layer": "bottom", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 38, // Waybar height (to be removed for auto height)
-  // "width": 1350, // Waybar width
-  "spacing": 6, // Gaps between modules (4px)
-  "gtk-layer-shell": true,
-  "reload_style_on_change": true,
-
-  // Modules left
-  "modules-left": [
+  "layer" : "top",
+  "position" : "top",
+  "modules-left" : [
     "hyprland/workspaces",
     "hyprland/window"
   ],
-
-  // Modules center
-  "modules-center": ["custom/spotify"],
-
-  // Modules right
-  "modules-right": [
-    "tray",
-    "cpu",
-    "memory",
+  "modules-center" : [],
+  "modules-right" : [
+    "disk",
     "pulseaudio",
+    "backlight",
+    "memory",
+    "cpu",
+    "bluetooth",
     "network",
-    "custom/updates",
-    "clock"
+    "battery",
+    "clock",
+    "tray"
   ],
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 10
+  "hyprland/workspaces" : {
+    "format" : "{name}"
   },
-  "cpu": {
-    "format": "CPU: {usage}% - {max_frequency}",
-    "tooltip": false
-  },
-  "memory": {
-    "format": "RAM: {used:0.1f}GB / {total:0.1f}GB ({percentage}%)"
-  },
-  "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": ["󰃟"],
-    "on-scroll-up": "brightnessctl set +1%",
-    "on-scroll-down": "brightnessctl set 1%-"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}% {format_source}",
-    "format-bluetooth": "{icon}󰂯 {volume}% {format_source}",
-    "format-bluetooth-muted": "󰖁󰂯 {volume}% {format_source}",
-    "format-muted": "󰖁 {volume}% {format_source}",
-    "format-source": "󰍬 {volume}%",
-    "format-source-muted": "󰍭 {volume}%",
-    "format-icons": {
-      "headphone": "󰋋",
-      "hands-free": "",
-      "headset": "󰋋",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["󰕿", "󰖀", "󰕾"]
+  "pulseaudio" : {
+    "scroll-step" : 1,
+    "format" : "{icon} {volume}%",
+    "format-muted" : "󰖁 Muted",
+    "format-icons" : {
+      "default" : [ " ", " ", " " ]
     },
-    "on-click": "pavucontrol",
-    "tooltip": false
+    "on-click" : "pamixer -t",
+    "tooltip" : false
   },
-  "network": {
-    "format-wifi": "󰤨 {essid} {signalStrength}%",
-    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
-    "tooltip-format": "󰈀 {ifname} via {gwaddr}",
-    "format-linked": "󰈀 {ifname} (No IP)",
-    "format-disconnected": "Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  "backlight" : {
+    "format" : "{icon} {percent}%",
+    "format-icons" : [ "", "" ]
   },
-  "bluetooth": {
-    "format-disabled": "󰂯 {status}",
-    "format-off": "",
-    "format-on": "󰂯",
-    "format-connected": "󰂯 {device_alias}",
-    "format-connected-battery": "󰂯 {device_alias} 󰂄 {device_battery_percentage}%"
+  "clock" : {
+    "interval" : 60,
+    "format" : "{:%H:%M}",
+    "tooltip" : true,
+    "tooltip-format": "{:%A, %d %B %Y}\n<tt>{calendar}</tt>"
   },
-  "battery": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon} {time}",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "tooltip": false,
-    "bat": "hidpp_battery_1"
-  },
-  "battery#xboxcontroller": {
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-plugged": " {capacity}%",
-    "format-alt": "{icon} {time}",
-    "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-    "tooltip": false,
-    "bat": "gip0.0"
-  },
-  "clock": {
-    "interval": 1,
-    "format": "󰥔 {:%H:%M}",
-    "format-alt": "{:󰣆 %A %d de %B - 󰥔 %H:%M:%S}"
-  },
-  "custom/updates": {
-    "format": "{icon}{}",
-    "return-type": "json",
-    "format-icons": {
-      "pending-updates": " ",
-      "updated": " "
-    },
-    "exec-if": "which waybar-updates",
-    "exec": "waybar-updates",
-    "on-click": "alacritty -e yay"
-  },
-  "hyprland/workspaces": {
-	  "format": "{icon}",
-	  "format-icons": {
-	  	"1": "1",
-		  "2": "2",
-		  "3": "3",
-		  "4": "🎮️",
-		  "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9",
-      "10": "10"
+  "memory" : {
+    "interval" : 1,
+    "format" : "󰻠 RAM: {percentage}%",
+    "states" : {
+      "warning" : 85
     }
   },
-  "custom/spotify": {
-    "exec": "/usr/bin/python3 /home/erik/.config/waybar/scripts/mediaplayer.py --player spotify",
-    "format": "{}  ",
-    "return-type": "json",
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous"
+  "cpu" : {
+    "interval" : 1,
+    "format" : "󰍛 CPU: {usage}%"
+  },
+  "bluetooth" : {
+    "on-click" : "blueberry",
+    "format-connected" : "󰂯 {device_alias}",
+    "tooltip" : false
+  },
+  "network" : {
+    "format-disconnected" : "󰯡 Disconnected",
+    "format-ethernet" : "󰒢 Connected!",
+    "format-linked" : "󰖪 {essid} (No IP)",
+    "format-wifi" : "󰖩 {essid}",
+    "interval" : 1,
+    "tooltip" : false
+  },
+  "tray" : {
+    "icon-size" : 15,
+    "spacing" : 5
+  },
+  "battery" : {
+    "interval" : 60,
+    "states" : {
+      "warning" : 30,
+      "critical" : 15
+    },
+    "format" : "{icon} {capacity}%",
+    "format-icons" : [" ", " ", " ", " ", " "],
+    "max-length" : 25
+  },
+  "hyprland/window" : {
+    "format" : "{}"
+  },
+  "disk" : {
+    "format" : "{specific_free:0.2f} / {specific_total:0.2f} GB Free",
+    "unit" : "GB",
+    "interval" : 3600
   }
 }

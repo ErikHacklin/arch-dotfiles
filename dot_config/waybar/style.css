@@ -1,253 +1,115 @@
-@import "themes/mocha.css";
+@define-color base00 #1e1e2e; /* base */
+@define-color base01 #181825; /* mantle */
+@define-color base02 #313244; /* surface0 */
+@define-color base03 #45475a; /* surface1 */
+@define-color base04 #585b70; /* surface2 */
+@define-color base05 #cdd6f4; /* text */
+@define-color base06 #f5e0dc; /* rosewater */
+@define-color base07 #b4befe; /* lavender */
+@define-color base08 #f38ba8; /* red */
+@define-color base09 #fab387; /* peach */
+@define-color base0A #f9e2af; /* yellow */
+@define-color base0B #a6e3a1; /* green */
+@define-color base0C #94e2d5; /* teal */
+@define-color base0D #89b4fa; /* blue */
+@define-color base0E #cba6f7; /* mauve */
+@define-color base0F #f2cdcd; /* flamingo */
 
-/* Download icons font: https://github.com/Templarian/MaterialDesign-Font */
 * {
-  font-family: "Overpass Nerd Font";
-  font-size: 14px;
-}
-
-/* Waybar */
-window#waybar 
-{
-  background-color: shade(@base, 0.8);
-  color: @text;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-}
-
-/* Modules */
-#tray,
-#custom-media,
-#cpu,
-#memory,
-#backlight,
-#pulseaudio,
-#network,
-#bluetooth,
-#battery,
-#clock,
-#custom-sysmenu,
-#custom-updates,
-#window {
-  padding: 2px 10px;
-  color: @text;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 2px;
-  margin-right: 2px;
-  border-radius: 3px;
-}
-
-/* Workspaces */
-#workspaces 
-{
-  font-family: "Noto Color Emoji";
-  margin-left: 3px;
-  margin-right: 3px;
-}
-
-#workspaces button 
-{
-  background-color: @surface0;
-  padding: 1px 0px;
-  color: @subtext0;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 2px;
-  margin-right: 2px;
-  border-radius: 3px;
-  transition-duration: 0.2s;
-  min-width: 60px;
-}
-
-#workspaces button:hover 
-{
-  background-color: @blue;
-  color: @crust;
-  transition-duration: 0.2s;
-}
-
-#workspaces button.active 
-{
-  padding: 1px 12px;
-  background-color: @blue;
-  color: @crust;
-  transition-duration: 0.2s;
-}
-
-#workspaces button.focused 
-{
-  background-color: @lavender;
-  color: @crust;
-}
-
-#workspaces button.urgent 
-{
-  background-color: @red;
-  color: @crust;
-}
-
-/* Tray */
-#tray 
-{
-  background-color: @surface0;
-  color: @crust;
-}
-
-#tray > .passive 
-{
-  -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention 
-{
-  -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
-}
-
-/* CPU */
-#cpu 
-{
-  background-color: @surface0;
-  color: @text;
-}
-
-/* Custom Media */
-#custom-media 
-{
-  background-color: @mauve;
-  color: @crust;
-}
-
-#custom-media.playing 
-{
-  background-color: @green;
-  transition-duration: 0.5s;
-}
-
-#custom-media.paused 
-{
-  background-color: @red;
-  transition-duration: 0.5s;
-}
-
-/* Memory */
-#memory 
-{
-  background-color: @surface0;
-  color: @text;
-}
-
-/* Backlight */
-#backlight 
-{
-  background-color: #ffffff;
-  color: @crust;
-}
-
-/* Pulseaudio */
-#pulseaudio 
-{
-  background-color: @surface0;
-  color: @text;
-}
-
-#pulseaudio.muted 
-{
-  background-color: @red;
-  color: @crust;
-}
-
-/* Network */
-#network 
-{
-  background-color: @surface0;
-  color: @text;
-}
-
-#network.disconnected 
-{
-  background-color: @red;
-  color: @crust;
-}
-
-/* Bluetooth */
-#bluetooth 
-{
-  background-color: @blue;
-  color: @crust;
-}
-
-#bluetooth.disabled 
-{
-  background-color: @lavender;
-}
-
-#bluetooth.off 
-{
-  background-color: @red;
-}
-
-/* Battery */
-#battery 
-{
-  background-color: @green;
-  color: @crust;
-}
-
-#battery.charging,
-#battery.plugged 
-{
-  background-color: @teal;
-  color: @crust;
-}
-
-@keyframes blink 
-{
-  to {
-    background-color: #ffffff;
-    color: #000000;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 10pt;
+    font-weight: bold;
+    border-radius: 6px;
+    transition-property: background-color;
+    transition-duration: 0.3s;
   }
-}
-
-#battery.critical:not(.charging) 
-{
-  background-color: @red;
-  color: @crust;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-
-/* Clock */
-#clock 
-{
-  background-color: @surface0;
-  color: @text;
-  margin-right: 5px;
-}
-
-/* Custom SysMenu */
-#custom-sysmenu 
-{
-  background-color: @red;
-  color: @crust;
-  padding: 1px 8px;
-  margin-right: 10px;
-}
-
-#custom-updates
-{
-  background-color: @surface0;
-  color: @text;
-}
-
-.custom-spotify {
-    background-color: #1DB954;
-    color: black;
-    padding: 0px 10px;
-    margin: 5px;
-    border-radius: 3px;
-}
+  @keyframes blink_red {
+    to {
+      background-color: @base08;
+      color: rgb(26, 24, 38);
+    }
+  }
+  .warning, .critical, .urgent {
+    animation-name: blink_red;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  window#waybar {
+    background-color: transparent;
+  }
+  window > box {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: @base00;
+    padding: 3px;
+    padding-left:8px;
+    border: 2px solid @base0D;
+  }
+  #workspaces {
+    padding-left: 0px;
+    padding-right: 4px;
+  }
+  #workspaces button {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+  #workspaces button.active {
+    background-color: @base0D;
+    color: @base00;
+  }
+  #workspaces button.urgent {
+    color: @base00;
+  }
+  #workspaces button:hover {
+    background-color: @base0D;
+    color: @base00;
+  }
+  tooltip {
+    background: rgb(48, 45, 65);
+  }
+  tooltip label {
+    color: @base05;
+  }
+  #window {
+    margin-left: 10px;
+  }
+  #clock, #memory, #temperature, #cpu, #backlight, #pulseaudio, #network, #battery {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #clock, #temperature, #battery {
+    color: @base05;
+  }
+  #pulseaudio {
+    color: @base0E;
+  }
+  #backlight {
+    color: @base0A;
+  }
+  #cpu {
+    color: @base0C;
+  }
+  #bluetooth {
+    color: @base0D;
+  }
+  #disk {
+    color: @base0F;
+  }
+  #memory {
+    color: @base09;
+  }
+  #network {
+    color: @base0B;
+  }
+  #network.disconnected {
+    color: @base08;
+  }
+  #tray {
+    padding-right: 8px;
+    padding-left: 10px;
+  }
