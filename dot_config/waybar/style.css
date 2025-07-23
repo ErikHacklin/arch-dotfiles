@@ -78,7 +78,7 @@
   #window {
     margin-left: 10px;
   }
-  #clock, #memory, #temperature, #cpu, #backlight, #pulseaudio, #network, #battery {
+  #clock, #memory, #temperature, #cpu, #backlight, #pulseaudio, #network, #battery, #custom-pacman {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -115,10 +115,9 @@
   }
   @keyframes blink-update {
 	  to {
-		  background-color: dodgerblue;
+		  color: dodgerblue;
 	  }
   }
-
   #custom-pacman {
     animation-timing-function: linear;
     animation-iteration-count: infinite;
