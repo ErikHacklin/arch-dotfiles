@@ -96,6 +96,7 @@
       "updated": ""
     },
     "exec-if": "which waybar-updates",
-    "exec": "waybar-updates"
+    "exec": "waybar-updates",
+    "interval": 28800
   }
 }
