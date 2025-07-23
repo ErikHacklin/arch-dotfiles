@@ -7,6 +7,7 @@
   ],
   "modules-center" : [],
   "modules-right" : [
+    "custom/pacman",
     "disk",
     "pulseaudio",
     "backlight",
@@ -86,5 +87,15 @@
     "format" : "{specific_free:0.2f} / {specific_total:0.2f} GB Free",
     "unit" : "GB",
     "interval" : 3600
+  },
+  "custom/pacman": {
+    "format": "{icon}{0}",
+    "return-type": "json",
+    "format-icons": {
+      "pending-updates": " ",
+      "updated": ""
+    },
+    "exec-if": "which waybar-updates",
+    "exec": "waybar-updates"
   }
 }
